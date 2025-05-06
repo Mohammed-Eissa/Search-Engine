@@ -4,79 +4,96 @@
     ViewData["Title"] = "Search Engine";
 }
 
-<div class="text-center mt-5">
-    <h1 class="display-4 mb-4">Search Engine</h1>
+<div class="search-container text-center mt-5">
+    <div class="search-logo">
+        <h1 class="mb-4">Search<span class="logo-accent">Engine</span></h1>
+    </div>
 
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-8 col-lg-6">
             <form asp-action="Search" method="post" class="mb-5">
-                <div class="input-group">
-                    <input type="text" class="form-control form-control-lg" name="query" placeholder="Enter search terms..." value="@Model.Query">
-                    <div class="input-group-append">
-                        <button class="btn btn-primary btn-lg" type="submit">Search</button>
-                    </div>
+                <div class="input-group search-input-group">
+                    <input type="text" class="form-control search-input" name="query" placeholder="Search the web..." value="@Model.Query" autofocus autocomplete="off">
+                    <button class="btn btn-primary search-button" type="submit">
+                        <i class="bi bi-search"></i> Search
+                    </button>
+                </div>
+                <div class="form-text text-muted mt-2">
+                    <small>Press <kbd>/</kbd> to focus search | Hit <kbd>Enter</kbd> to search</small>
                 </div>
             </form>
         </div>
     </div>
 
-    @if (Model.FrequencyResults.Any())
+    @if (Model.FrequencyResults.Any() || Model.PageRankResults.Any())
     {
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <h2 class="h4 mb-0">Results by Frequency</h2>
-                    </div>
-                    <div class="card-body p-0">
-                        <table class="table table-striped mb-0">
-                            <thead>
-                                <tr>
-                                    <th>URL</th>
-                                    <th>Word</th>
-                                    <th>Frequency</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var result in Model.FrequencyResults)
-                                {
-                                    <tr>
-                                        <td><a href="@result.Url" target="_blank">@result.Url</a></td>
-                                        <td>@result.Word</td>
-                                        <td>@result.Frequency</td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
+        <div class="results-container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h2 class="h5 mb-0">
+                                <i class="bi bi-bar-chart-fill me-2"></i>Results by Frequency
+                            </h2>
+                            <span class="badge bg-light text-dark">@Model.FrequencyResults.Count() results</span>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>URL</th>
+                                            <th>Word</th>
+                                            <th>Frequency</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var result in Model.FrequencyResults)
+                                        {
+                                            <tr class="animated-row">
+                                                <td><a href="@result.Url" target="_blank">@result.Url</a></td>
+                                                <td>@result.Word</td>
+                                                <td>@result.Frequency</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-md-6">
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <h2 class="h4 mb-0">Results by PageRank</h2>
-                    </div>
-                    <div class="card-body p-0">
-                        <table class="table table-striped mb-0">
-                            <thead>
-                                <tr>
-                                    <th>URL</th>
-                                    <th>Word</th>
-                                    <th>PageRank</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var result in Model.PageRankResults)
-                                {
-                                    <tr>
-                                        <td><a href="@result.Url" target="_blank">@result.Url</a></td>
-                                        <td>@result.Word</td>
-                                        <td>@result.PageRank.ToString("F6")</td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h2 class="h5 mb-0">
+                                <i class="bi bi-graph-up me-2"></i>Results by PageRank
+                            </h2>
+                            <span class="badge bg-light text-dark">@Model.PageRankResults.Count() results</span>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>URL</th>
+                                            <th>Word</th>
+                                            <th>PageRank</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var result in Model.PageRankResults)
+                                        {
+                                            <tr class="animated-row">
+                                                <td><a href="@result.Url" target="_blank">@result.Url</a></td>
+                                                <td>@result.Word</td>
+                                                <td>@result.PageRank.ToString("F6")</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -84,8 +101,17 @@
     }
     else if (!string.IsNullOrEmpty(Model.Query))
     {
-        <div class="alert alert-info">
-            No results found for your search.
+        <div class="alert alert-info shadow-sm w-75 mx-auto">
+            <i class="bi bi-info-circle-fill me-2"></i> No results found for your search "<strong>@Model.Query</strong>".
+            <div class="mt-2">
+                <small>Try different keywords or check your spelling</small>
+            </div>
         </div>
     }
 </div>
+
+@section Scripts {
+    <script>
+        // Any page-specific scripts can go here
+    </script>
+}

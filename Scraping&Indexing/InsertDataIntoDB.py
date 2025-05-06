@@ -5,9 +5,9 @@ import os
 
 # Database connection parameters
 SERVER = '.'  # Replace with your SQL Server name
-DATABASE = 'SearchEngineDB9'  # Replace with your database name
-USERNAME = 'YOUSRYABDELRAZE\yousr'  # Optional if using Trusted_Connection
-PASSWORD = 'sa123456'  # Optional if using Trusted_Connection
+DATABASE = 'Search_Engine'  # Replace with your database name
+USERNAME = ''  # Optional if using Trusted_Connection
+PASSWORD = ''  # Optional if using Trusted_Connection
 
 # File paths
 inverted_index_file = r"D:\Sayed.txt"
