@@ -2,6 +2,14 @@
 
 A simple web search engine built with ASP.NET Core that ranks results by word frequency and PageRank.
 
+## Example
+
+Here's what the search engine looks like in action:
+
+![Search Engine Example](https://github.com/Mohammed-Eissa/Search-Engine/raw/main/search-example.png)
+
+*Example showing search results for "help" with both frequency and PageRank rankings*
+
 ## About This Project
 
 This search engine lets you:
@@ -57,6 +65,6 @@ When you search:
 
 ## Contact
 
-Mohammed Eissa - [GitHub Profile](https://github.com/Mohammed-Eissa)
+Mohammed Eissa - [GitHub Profile](https://github.com/Mohammed-Eissa/Search-Engine)
 
 Project Link: [https://github.com/Mohammed-Eissa/Search-Engine](https://github.com/Mohammed-Eissa/Search-Engine)
