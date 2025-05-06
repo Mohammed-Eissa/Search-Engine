@@ -1,0 +1,91 @@
+﻿@model Search_Engine.Models.SearchViewModel
+
+@{
+    ViewData["Title"] = "Search Engine";
+}
+
+<div class="text-center mt-5">
+    <h1 class="display-4 mb-4">Search Engine</h1>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form asp-action="Search" method="post" class="mb-5">
+                <div class="input-group">
+                    <input type="text" class="form-control form-control-lg" name="query" placeholder="Enter search terms..." value="@Model.Query">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary btn-lg" type="submit">Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    @if (Model.FrequencyResults.Any())
+    {
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h2 class="h4 mb-0">Results by Frequency</h2>
+                    </div>
+                    <div class="card-body p-0">
+                        <table class="table table-striped mb-0">
+                            <thead>
+                                <tr>
+                                    <th>URL</th>
+                                    <th>Word</th>
+                                    <th>Frequency</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var result in Model.FrequencyResults)
+                                {
+                                    <tr>
+                                        <td><a href="@result.Url" target="_blank">@result.Url</a></td>
+                                        <td>@result.Word</td>
+                                        <td>@result.Frequency</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h2 class="h4 mb-0">Results by PageRank</h2>
+                    </div>
+                    <div class="card-body p-0">
+                        <table class="table table-striped mb-0">
+                            <thead>
+                                <tr>
+                                    <th>URL</th>
+                                    <th>Word</th>
+                                    <th>PageRank</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var result in Model.PageRankResults)
+                                {
+                                    <tr>
+                                        <td><a href="@result.Url" target="_blank">@result.Url</a></td>
+                                        <td>@result.Word</td>
+                                        <td>@result.PageRank.ToString("F6")</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else if (!string.IsNullOrEmpty(Model.Query))
+    {
+        <div class="alert alert-info">
+            No results found for your search.
+        </div>
+    }
+</div>
