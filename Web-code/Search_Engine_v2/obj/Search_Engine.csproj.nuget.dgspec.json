@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\eissa\\Desktop\\Collegue\\BigData\\Search_Engine\\Search_Engine_v2\\Search_Engine.csproj": {}
+    "C:\\Users\\eissa\\Desktop\\Collegue\\BigData\\Search_Engine\\Search-Engine\\Web-code\\Search_Engine_v2\\Search_Engine.csproj": {}
   },
   "projects": {
-    "C:\\Users\\eissa\\Desktop\\Collegue\\BigData\\Search_Engine\\Search_Engine_v2\\Search_Engine.csproj": {
+    "C:\\Users\\eissa\\Desktop\\Collegue\\BigData\\Search_Engine\\Search-Engine\\Web-code\\Search_Engine_v2\\Search_Engine.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\eissa\\Desktop\\Collegue\\BigData\\Search_Engine\\Search_Engine_v2\\Search_Engine.csproj",
+        "projectUniqueName": "C:\\Users\\eissa\\Desktop\\Collegue\\BigData\\Search_Engine\\Search-Engine\\Web-code\\Search_Engine_v2\\Search_Engine.csproj",
         "projectName": "Search_Engine",
-        "projectPath": "C:\\Users\\eissa\\Desktop\\Collegue\\BigData\\Search_Engine\\Search_Engine_v2\\Search_Engine.csproj",
+        "projectPath": "C:\\Users\\eissa\\Desktop\\Collegue\\BigData\\Search_Engine\\Search-Engine\\Web-code\\Search_Engine_v2\\Search_Engine.csproj",
         "packagesPath": "C:\\Users\\eissa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\eissa\\Desktop\\Collegue\\BigData\\Search_Engine\\Search_Engine_v2\\obj\\",
+        "outputPath": "C:\\Users\\eissa\\Desktop\\Collegue\\BigData\\Search_Engine\\Search-Engine\\Web-code\\Search_Engine_v2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

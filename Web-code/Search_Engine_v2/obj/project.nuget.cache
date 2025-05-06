@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JR185vP6Ig0=",
+  "dgSpecHash": "yC1+JOov+3I=",
   "success": true,
-  "projectFilePath": "C:\\Users\\eissa\\Desktop\\Collegue\\BigData\\Search_Engine\\Search_Engine_v2\\Search_Engine.csproj",
+  "projectFilePath": "C:\\Users\\eissa\\Desktop\\Collegue\\BigData\\Search_Engine\\Search-Engine\\Web-code\\Search_Engine_v2\\Search_Engine.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\eissa\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\eissa\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
