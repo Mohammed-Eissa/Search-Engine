@@ -1,8 +1,14 @@
-# Search Engine
+# 🔍 ASP.NET Core Search Engine
 
 A simple web search engine built with ASP.NET Core that ranks results by word frequency and PageRank.
 
-## Example
+## ✨ Features
+
+- **Dual-ranking system**: Compare results by frequency or PageRank
+- **Clean, responsive UI**: User-friendly interface that works on all devices
+- **Fast performance**: Optimized for quick search results
+
+## 📋 Example
 
 Here's what the search engine looks like in action:
 
@@ -10,61 +16,90 @@ Here's what the search engine looks like in action:
 
 *Example showing search results for "help" with both frequency and PageRank rankings*
 
-## About This Project
+## 📁 Repository Structure
 
-This search engine lets you:
-- Search for keywords
-- View results ranked by how often words appear (Frequency)
-- View results ranked by page importance (PageRank)
-- Get clean, user-friendly search results
+```
+Search-Engine/
+├── Scraping&Indexing/      # Python scripts for data preparation
+│   ├── scraping.py         # Web crawler and PageRank calculator
+│   ├── inverted_index.py   # Creates searchable index
+│   └── InsertDataIntoDB.py # Populates database
+│
+└── [ASP.NET Core files]    # Main application files
+```
 
-## How to Run the Project
+## 🚀 Getting Started
 
-### What You'll Need
+### Prerequisites
+
 - .NET 6 SDK or newer
 - Visual Studio 2022 or Visual Studio Code
+- Python 3.6+ with packages: requests, beautifulsoup4, pyodbc, networkx, pandas
+- SQL Server Database
 
-### Quick Start Guide
+### Setup Process
 
-1. **Get the code**
-   ```
+1. **Clone the repository first**
+   ```bash
    git clone https://github.com/Mohammed-Eissa/Search-Engine.git
+   cd Search-Engine
    ```
-   Or download the ZIP file from GitHub
 
-2. **Open the project**
-   - If using Visual Studio: Open the .sln file
-   - If using VS Code: Open the folder
+2. **Run Python scripts** (in the Scraping&Indexing folder)
+   ```bash
+   cd Scraping&Indexing
+   python scraping.py
+   python inverted_index.py scraped_pages output_dir
+   python InsertDataIntoDB.py
+   ```
+   > Update database connection in InsertDataIntoDB.py if needed
 
-3. **Run the application**
-   - In Visual Studio: Press F5 or click the Run button
-   - In terminal/command prompt:
-     ```
-     dotnet run
-     ```
+3. **Configure and run the ASP.NET application**
+   - Return to the main directory: `cd ..`
+   - Update connection string in appsettings.json
+   - Open the .sln file in Visual Studio or the folder in VS Code
+   - Run the application (F5 in Visual Studio or `dotnet run` in terminal)
 
-4. **Use the search engine**
-   - Open your browser to the URL shown in the terminal (usually http://localhost:5000)
-   - Type search terms in the box and click Search
-   - View your results!
+## 🧠 How It Works
 
-## How It Works
+### Data Pipeline
 
-When you search:
-1. The app looks for your keywords in its database
-2. It ranks the results in two ways:
-   - By how many times the word appears on a page
-   - By how important the page is (PageRank algorithm)
-3. The results appear in two tables side by side
+1. **Web Scraping**: Collects page content and link structure
+2. **Inverted Indexing**: Creates a searchable index of words and their locations
+3. **PageRank Calculation**: Determines page importance based on link relationships
+4. **Database Storage**: Stores all processed data for fast retrieval
+5. **Search & Ranking**: Retrieves and ranks results when users search
 
-## Technologies Used
+## 🛠️ Technical Details
 
-- ASP.NET Core MVC
-- Bootstrap for styling
-- JavaScript for interactive features
+- **Backend**: ASP.NET Core MVC
+- **Frontend**: HTML, CSS, JavaScript, Bootstrap
+- **Data Processing**: Python (BeautifulSoup, NetworkX, Pandas)
+- **Data Storage**: SQL Server Database
+- **Algorithms**: Inverted Index, PageRank
 
-## Contact
+## 📝 Scraping & Indexing
 
-Mohammed Eissa - [GitHub Profile](https://github.com/Mohammed-Eissa/Search-Engine)
+The Python scripts in the Scraping&Indexing folder prepare data for the search engine:
+
+### `scraping.py`
+- Crawls web pages from a seed URL
+- Extracts text content and builds link graph
+- Calculates PageRank scores
+- Saves to text files and CSV
+
+### `inverted_index.py`
+- Processes scraped content
+- Creates word-to-document mapping with frequencies
+- Outputs an inverted index file
+
+### `InsertDataIntoDB.py`
+- Creates database tables
+- Loads PageRank scores
+- Populates database with words, URLs, and mappings
+
+## 📞 Contact
+
+Mohammed Eissa - [GitHub Profile](https://github.com/Mohammed-Eissa)
 
 Project Link: [https://github.com/Mohammed-Eissa/Search-Engine](https://github.com/Mohammed-Eissa/Search-Engine)
