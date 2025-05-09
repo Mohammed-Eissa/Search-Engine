@@ -56,6 +56,7 @@ Search-Engine/
 
 3. **Configure and run the ASP.NET application**
    - Return to the main directory: `cd ..`
+   - Go to .Net folder : `cd Web-code`
    - Update connection string in appsettings.json
    - Open the .sln file in Visual Studio or the folder in VS Code
    - Run the application (F5 in Visual Studio or `dotnet run` in terminal)
