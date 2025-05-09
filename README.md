@@ -102,5 +102,6 @@ The Python scripts in the Scraping&Indexing folder prepare data for the search e
 ## 📞 Contact
 
 Mohammed Eissa - [GitHub Profile](https://github.com/Mohammed-Eissa)
+                 [Linkedin Profile](https://www.linkedin.com/in/mohamed-eissa-80a298264/)
 
 Project Link: [https://github.com/Mohammed-Eissa/Search-Engine](https://github.com/Mohammed-Eissa/Search-Engine)
