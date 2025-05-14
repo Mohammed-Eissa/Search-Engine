@@ -61,7 +61,7 @@ Search-Engine/
 
 ### Prerequisites
 
-- .NET 10 SDK or newer
+- .NET 8 SDK or newer
 - Visual Studio 2022 or Visual Studio Code
 - Python 3.6+ with packages: requests, beautifulsoup4, pyodbc, networkx, pandas
 - SQL Server Database
