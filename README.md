@@ -2,11 +2,35 @@
 
 A simple web search engine built with ASP.NET Core that ranks results by word frequency and PageRank.
 
+---
+
+## Table of Contents
+
+- [✨ Features](#-features)
+- [📋 Example](#-example)
+- [📁 Repository Structure](#-repository-structure)
+- [🚀 Getting Started](#-getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Setup Process](#setup-process)
+- [🧠 How It Works](#-how-it-works)
+  - [Data Pipeline](#data-pipeline)
+- [🛠️ Technical Details](#-technical-details)
+- [📝 Scraping & Indexing](#-scraping--indexing)
+  - [`scraping.py`](#scrapingpy)
+  - [`inverted_index.py`](#inverted_indexpy)
+  - [`InsertDataIntoDB.py`](#insertdataintodbpy)
+- [🐳 Docker Image](#-docker-image)
+- [📞 Contact](#-contact)
+
+---
+
 ## ✨ Features
 
 - **Dual-ranking system**: Compare results by frequency or PageRank
 - **Clean, responsive UI**: User-friendly interface that works on all devices
 - **Fast performance**: Optimized for quick search results
+
+---
 
 ## 📋 Example
 
@@ -16,24 +40,28 @@ Here's what the search engine looks like in action:
 
 *Example showing search results for "help" with both frequency and PageRank rankings*
 
+---
+
 ## 📁 Repository Structure
 
 ```
 Search-Engine/
 ├── Scraping&Indexing/      # Python scripts for data preparation
 │   ├── scraping.py         # Web crawler and PageRank calculator
-│	├── requirements.txt    # requirments for running python files
+│   ├── requirements.txt    # requirments for running python files
 │   ├── inverted_index.py   # Creates searchable index
 │   └── InsertDataIntoDB.py # Populates database
 │
 └── [ASP.NET Core files]    # Main application files
 ```
 
+---
+
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- .NET 8 SDK or newer
+- .NET 10 SDK or newer
 - Visual Studio 2022 or Visual Studio Code
 - Python 3.6+ with packages: requests, beautifulsoup4, pyodbc, networkx, pandas
 - SQL Server Database
@@ -45,14 +73,14 @@ Search-Engine/
    git clone https://github.com/Mohammed-Eissa/Search-Engine.git
    cd Search-Engine
    ```
-   
+
 2. **Install the required dependencies**
-	```bash
+   ```bash
    pip install -r Scraping&Indexing/requirements.txt
    ```
 
 3. **Run Python scripts** (in the Scraping&Indexing folder)
-	> Update link to scrap from file scraping.py if you want
+   > Update link to scrap from file scraping.py if you want
    ```bash
    cd Scraping&Indexing
    python scraping.py
@@ -67,14 +95,16 @@ Search-Engine/
    - Update connection string in appsettings.json
    - Open the .sln file in Visual Studio or the folder in VS Code
    - Run the application (F5 in Visual Studio or `dotnet run` in terminal)
-   
+
    **Or U can Run it with docker compose**
-	- Return to the main directory: `cd ..`
-	- Go to .Net folder : `cd Web-code`
-	- run this command
-	```
-	docker-compose up -d 
-	```
+   - Return to the main directory: `cd ..`
+   - Go to .Net folder : `cd Web-code`
+   - run this command
+   ```
+   docker-compose up -d
+   ```
+
+---
 
 ## 🧠 How It Works
 
@@ -86,6 +116,8 @@ Search-Engine/
 4. **Database Storage**: Stores all processed data for fast retrieval
 5. **Search & Ranking**: Retrieves and ranks results when users search
 
+---
+
 ## 🛠️ Technical Details
 
 - **Backend**: ASP.NET Core MVC
@@ -93,6 +125,8 @@ Search-Engine/
 - **Data Processing**: Python (BeautifulSoup, NetworkX, Pandas)
 - **Data Storage**: SQL Server Database
 - **Algorithms**: Inverted Index, PageRank
+
+---
 
 ## 📝 Scraping & Indexing
 
@@ -114,9 +148,39 @@ The Python scripts in the Scraping&Indexing folder prepare data for the search e
 - Loads PageRank scores
 - Populates database with words, URLs, and mappings
 
+---
+
+## 🐳 Docker Image
+
+Deploy the search engine effortlessly with Docker:
+
+- **Pull the Image**:
+  ```bash
+  docker pull mohammedeissa/search-engine:latest
+  ```
+
+- **Run the Container**:
+  ```bash
+  docker run -p 8080:8080 mohammedeissa/search-engine:latest
+  ```
+  Access the application at `http://localhost:8080`.
+
+- **Docker Hub**: [yousry97/searchengine](https://hub.docker.com/r/yousry97/searchengine)
+
+To build the image locally:
+```bash
+docker build -t search-engine .
+```
+
+> **Tip**: Ensure Docker is installed and running on your system.
+
+---
+
 ## 📞 Contact
 
-Mohammed Eissa - [GitHub Profile](https://github.com/Mohammed-Eissa)
-                 [Linkedin Profile](https://www.linkedin.com/in/mohamed-eissa-80a298264/)
+Mohammed Eissa - [GitHub Profile](https://github.com/Mohammed-Eissa)  
+                 [LinkedIn Profile](https://www.linkedin.com/in/mohamed-eissa-80a298264/)
 
 Project Link: [https://github.com/Mohammed-Eissa/Search-Engine](https://github.com/Mohammed-Eissa/Search-Engine)
+
+---
