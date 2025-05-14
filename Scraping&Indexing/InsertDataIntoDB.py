@@ -4,13 +4,14 @@ import csv
 import os
 
 # Database connection parameters
-SERVER = '.'  # Replace with your SQL Server name
-DATABASE = 'Search_Engine'  # Replace with your database name
-USERNAME = ''  # Optional if using Trusted_Connection
-PASSWORD = ''  # Optional if using Trusted_Connection
+SERVER = 'localhost'  # اسم السيرفر أو IP
+PORT = '1433'
+DATABASE = 'SearchEngine'  # Replace with your database name
+USERNAME = 'sa'  # Optional if using Trusted_Connection
+PASSWORD = 'Password@123'  # Optional if using Trusted_Connection
 
 # File paths
-inverted_index_file = r"D:\Sayed.txt"
+inverted_index_file = r"D:\inverted_index.txt"
 page_rank_file = r"D:\pagerank_results.csv"
 
 # Decode base64 URL
@@ -80,9 +81,9 @@ def load_page_rank_data(file_path):
                             rank = float(row[1])
                             page_ranks[url] = rank
                         except ValueError:
-                            print(f"⚠️ Invalid rank for {url}")
+                            print(f"⚠ Invalid rank for {url}")
         except Exception as e:
-            print(f"⚠️ Error reading PageRank file: {e}")
+            print(f"⚠ Error reading PageRank file: {e}")
     else:
         print(f"❌ PageRank file not found: {file_path}")
     return page_ranks
@@ -90,9 +91,7 @@ def load_page_rank_data(file_path):
 # Main data processing
 def process_and_insert_data():
     try:
-        conn_str = f'DRIVER={{SQL Server}};SERVER={SERVER};DATABASE={DATABASE};Trusted_Connection=yes;TrustServerCertificate=yes;'
-
-       # conn_str = f'DRIVER={{SQL Server}};SERVER={SERVER};DATABASE={DATABASE};Trusted_Connection=yes;TrustServerCertificate=yes;'
+        conn_str = f'DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={SERVER},{PORT};DATABASE={DATABASE};UID={USERNAME};PWD={PASSWORD};TrustServerCertificate=yes;'
         conn = pyodbc.connect(conn_str)
         cursor = conn.cursor()
 
@@ -116,7 +115,7 @@ def process_and_insert_data():
 
             parts = line.split('\t', 1)
             if len(parts) < 2:
-                print(f"⚠️ Skipping invalid line: {line}")
+                print(f"⚠ Skipping invalid line: {line}")
                 continue
 
             word = parts[0].strip('"')
@@ -143,7 +142,7 @@ def process_and_insert_data():
 
                 occurrence_parts = occurrence.split(':', 1)
                 if len(occurrence_parts) < 2:
-                    print(f"⚠️ Invalid occurrence: {occurrence}")
+                    print(f"⚠ Invalid occurrence: {occurrence}")
                     continue
 
                 encoded_url = occurrence_parts[0]
@@ -198,5 +197,5 @@ def process_and_insert_data():
             conn.close()
 
 # Run the script
-if __name__ == "__main__":
+if _name_ == "_main_":
     process_and_insert_data()
