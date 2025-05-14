@@ -156,12 +156,12 @@ Deploy the search engine effortlessly with Docker:
 
 - **Pull the Image**:
   ```bash
-  docker pull mohammedeissa/search-engine:latest
+  docker pull yousry97/searchengine:v1.0
   ```
 
 - **Run the Container**:
   ```bash
-  docker run -p 8080:8080 mohammedeissa/search-engine:latest
+  docker run -p 8080:8080 yousry97/searchengine:v1.0
   ```
   Access the application at `http://localhost:8080`.
 
