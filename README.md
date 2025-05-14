@@ -66,6 +66,14 @@ Search-Engine/
    - Update connection string in appsettings.json
    - Open the .sln file in Visual Studio or the folder in VS Code
    - Run the application (F5 in Visual Studio or `dotnet run` in terminal)
+   
+   **Or U can Run it with docker compose**
+	- Return to the main directory: `cd ..`
+	- Go to .Net folder : `cd Web-code`
+	- run this command
+	```
+	docker-compose up -d 
+	```
 
 ## 🧠 How It Works
 
