@@ -52,6 +52,7 @@ Search-Engine/
    ```
 
 3. **Run Python scripts** (in the Scraping&Indexing folder)
+	> Update link to scrap from file scraping.py if you want
    ```bash
    cd Scraping&Indexing
    python scraping.py
@@ -60,7 +61,7 @@ Search-Engine/
    ```
    > Update database connection in InsertDataIntoDB.py if needed
 
-4. **Configure and run the ASP.NET application**
+4. **Configure and run the ASP.NET application for local run**
    - Return to the main directory: `cd ..`
    - Go to .Net folder : `cd Web-code`
    - Update connection string in appsettings.json
