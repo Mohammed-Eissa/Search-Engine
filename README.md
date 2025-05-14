@@ -22,6 +22,7 @@ Here's what the search engine looks like in action:
 Search-Engine/
 ├── Scraping&Indexing/      # Python scripts for data preparation
 │   ├── scraping.py         # Web crawler and PageRank calculator
+│	├── requirements.txt    # requirments for running python files
 │   ├── inverted_index.py   # Creates searchable index
 │   └── InsertDataIntoDB.py # Populates database
 │
@@ -44,8 +45,13 @@ Search-Engine/
    git clone https://github.com/Mohammed-Eissa/Search-Engine.git
    cd Search-Engine
    ```
+   
+2. **Install the required dependencies**
+	```bash
+   pip install -r Scraping&Indexing/requirements.txt
+   ```
 
-2. **Run Python scripts** (in the Scraping&Indexing folder)
+3. **Run Python scripts** (in the Scraping&Indexing folder)
    ```bash
    cd Scraping&Indexing
    python scraping.py
@@ -54,7 +60,7 @@ Search-Engine/
    ```
    > Update database connection in InsertDataIntoDB.py if needed
 
-3. **Configure and run the ASP.NET application**
+4. **Configure and run the ASP.NET application**
    - Return to the main directory: `cd ..`
    - Go to .Net folder : `cd Web-code`
    - Update connection string in appsettings.json
